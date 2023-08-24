@@ -51,7 +51,6 @@ body {
   height: 6em;
   perspective: 1000px;
   cursor: pointer;
-  background-color: brown;
 }
 
 .card:hover .front-face { transform: rotateY(-180deg); }
