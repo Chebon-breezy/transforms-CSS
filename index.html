@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CSS Animation Showcase</title>
 </head>
 <body>
-  <!-- Interactive UI Elements -->
-  <button class="interactive-button rotate">Rotate</button>
-  <button class="interactive-button scale">Scale</button>
-  <button class="interactive-button fade">Fade</button>
-
-  <!-- Pseudo-Elements Section -->
-  <section class="pseudo">
-    <p>Hover Over Me</p>
-    <div class="outer"></div>
-  </section>
-
-  <!-- 3D Element -->
-  <div class="card">
-    <div class="front-face">Front</div>
-    <div class="back-face">Back</div>
-  </div>
-
-  <!-- Custom Cursor Area -->
-  <section class="custom-cursor">
-    Hover Here
-  </section>
+    <header>
+        <h1>CSS Animation Showcase</h1>
+    </header>
+    
+    <main>
+        <div class="interactive-section">
+            <button class="button">Click Me</button>
+            <input type="range" class="slider">
+            <label class="toggle">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="pseudo-elements-section">
+            <div class="custom-box">Content</div>
+        </div>
+        
+        <div class="three-d-section">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">Front</div>
+                    <div class="card-back">Back</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Created by Your Name</p>
+    </footer>
 </body>
 </html>
