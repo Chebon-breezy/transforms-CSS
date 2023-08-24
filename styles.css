@@ -1,80 +1,77 @@
-/* Mobile Responsive */
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
 
-@media (max-width: 500px) {
-    header {
-      flex-direction: column;
-      align-items: center; 
-    }
-    
-    .box {
-      transform: rotateY(0deg) !important;
-    }
-  }
-  
-  
-  /* 3D Transformed Box */
-  
-  .box {
-    transform: rotateY(45deg);
-    transition: transform 1s ease;
-  }
-  
-  .box:hover {
-    transform: rotateY(0deg);
-  }
-  
-  .side {
-    position: absolute;
-    width: 100px; 
-    height: 100px;
-    border: 1px solid black;
-  }
-  
-  .top {
-    background: red; 
-    transform: rotateX(90deg) translateZ(50px);
-  }
-  
-  .left {
-    background: blue;
-    transform: translateX(-50px) rotateY(-90deg);
-  } 
-  
-  .right {
-    background: green;
-    transform: translateX(50px) rotateY(90deg);
-  }
-  
-  
-  /* Pseudo Elements */
-  
-  p {
-    position: relative; 
-  }
-  
-  p::before {
-    content: '🍕 ';
-    position: absolute;
-    left: -20px;
-    transition: left 300ms;
-  }
-  
-  p:hover::before {
-    left : 0;
-  }
-  
-  span {
-    position: relative;
-  }
-  
-  span::after {
-    content: ' 🧀';
-    position: absolute; 
-    opacity: 0;
-    transition: opacity 300ms;  
-  }
-  
-  span:hover::after {
-    opacity: 1;
-  }
-  
+/* Interactive UI Elements */
+.interactive-button {
+  padding: 1em;
+  margin: 1.5em;
+  font-size: 1.2em;
+  transition: transform 1s, scale 1s, opacity 1s;
+}
+
+.interactive-button.rotate:hover { transform: rotate(90deg); }
+.interactive-button.scale:hover { transform: scale(.8); }
+.interactive-button.fade:hover { opacity: .5; }
+
+/* Pseudo-Element Section */
+.pseudo {
+  position: relative;
+  width: max-content;
+  padding: 1em;
+  margin: 1.5em;
+}
+
+.pseudo::before, .pseudo::after {
+  content: '';
+  position: absolute;
+  background-color: lightgreen;
+  width: .8em;
+  height: .8em;
+}
+
+.pseudo::before {
+  top: 0; right: 0;
+  transform: translateY(-50%);
+}
+
+.pseudo::after {
+  bottom: 0; left: 0;
+  transform: translateY(50%);
+}
+
+/* 3D Element */
+.card {
+  width: 6em;
+  height: 6em;
+  perspective: 1000px;
+  cursor: pointer;
+  background-color: brown;
+}
+
+.card:hover .front-face { transform: rotateY(-180deg); }
+.card:hover .back-face { transform: rotateY(0); }
+
+.front-face, .back-face {
+  position: absolute;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  transition: transform 1s;
+}
+
+.front-face { transform: rotateY(0); }
+.back-face { transform: rotateY(180deg); }
+
+/* Custom Cursor Area */
+.custom-cursor {
+  width: 6em;
+  height: 6em;
+  padding: 1em;
+  margin: 1.5em;
+  cursor: url('cursor.png'), auto; /* Replace cursor.png with your custom cursor */
+}
