@@ -1,0 +1,80 @@
+/* Mobile Responsive */
+
+@media (max-width: 500px) {
+    header {
+      flex-direction: column;
+      align-items: center; 
+    }
+    
+    .box {
+      transform: rotateY(0deg) !important;
+    }
+  }
+  
+  
+  /* 3D Transformed Box */
+  
+  .box {
+    transform: rotateY(45deg);
+    transition: transform 1s ease;
+  }
+  
+  .box:hover {
+    transform: rotateY(0deg);
+  }
+  
+  .side {
+    position: absolute;
+    width: 100px; 
+    height: 100px;
+    border: 1px solid black;
+  }
+  
+  .top {
+    background: red; 
+    transform: rotateX(90deg) translateZ(50px);
+  }
+  
+  .left {
+    background: blue;
+    transform: translateX(-50px) rotateY(-90deg);
+  } 
+  
+  .right {
+    background: green;
+    transform: translateX(50px) rotateY(90deg);
+  }
+  
+  
+  /* Pseudo Elements */
+  
+  p {
+    position: relative; 
+  }
+  
+  p::before {
+    content: '🍕 ';
+    position: absolute;
+    left: -20px;
+    transition: left 300ms;
+  }
+  
+  p:hover::before {
+    left : 0;
+  }
+  
+  span {
+    position: relative;
+  }
+  
+  span::after {
+    content: ' 🧀';
+    position: absolute; 
+    opacity: 0;
+    transition: opacity 300ms;  
+  }
+  
+  span:hover::after {
+    opacity: 1;
+  }
+  
