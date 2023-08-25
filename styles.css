@@ -60,6 +60,12 @@ main {
   margin-bottom: 30px;
 }
 
+.subscribe-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 .input-box {
   display: flex;
   align-items: center;
