@@ -1,13 +1,19 @@
 /* Reset */
-body, h1, h2, p {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Global Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header, footer {
@@ -22,6 +28,145 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  flex: 1;
+}
+
+::selection{
+  color: #fff;
+  background: #664AFF;
+}
+
+/* Shared Button Styles */
+.button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+/* Search Section */
+.input-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-box i {
+  font-size: 30px;
+  color: #707070;
+  padding: 0 15px;
+}
+
+.input-box input {
+  flex: 1;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+}
+/*Email Subscribe section*/
+.wrapper{
+  height: 60px;
+  width: 400px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.wrapper .btn-1{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  color: #664AFF;
+  background: #fff;
+  line-height: 60px;
+  font-size: 27px;
+  font-weight: 500;
+  border-radius: 5px;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+  transition: 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.wrapper .btn-1:active{
+  transform: scale(0.9);
+}
+#click:checked ~ .btn-1{
+  height: 40px;
+  width: 100px;
+  opacity: 0;
+  pointer-events: none;
+}
+.wrapper .field{
+  height: 100%;
+  width: 0%;
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  transition: 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+#click:checked ~ .field{
+  width: 100%;
+  opacity: 1;
+  pointer-events: auto;
+}
+.wrapper .field input{
+  height: 100%;
+  width: 100%;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 0 130px 0 15px;
+  font-size: 20px;
+  outline: none;
+  box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+}
+.wrapper .field input::placeholder{
+  color: #999;
+  font-size: 18px;
+}
+.wrapper .field .btn-2{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  line-height: 40px;
+  background: #664AFF;
+  height: 40px;
+  width: 100px;
+  user-select: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.wrapper .field .btn-2:active{
+  transform: translateY(-50%) scale(0.9);
+}
+.wrapper #click{
+  display: none;
 }
 
 /* Interactive Section */
@@ -32,20 +177,17 @@ main {
   margin-bottom: 30px;
 }
 
-.button, .slider, .toggle {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  border-radius: 8px;
+.interactive-section .button {
+  font-size: 20px;
+  padding: 10px 20px; 
 }
 
-.button:hover, .slider:hover, .toggle:hover {
-  transform: scale(1.05);
+.interactive-section .slider {
+  width: 250%;
+}
+
+.interactive-section .toggle {
+  font-size: 20px;
 }
 
 .slider {
@@ -59,10 +201,10 @@ main {
 }
 
 .toggle .slider {
-  width: 40px;
-  height: 20px;
+  width: 90px;
+  height: 60px;
   background-color: #ccc;
-  border-radius: 10px;
+  border-radius: 15px;
   position: relative;
   margin-left: 10px;
   transition: background-color 0.2s ease-in-out;
@@ -159,12 +301,150 @@ main {
   transform: rotateY(180deg);
 }
 
-/* Custom Cursor */
-main {
-  cursor: url('custom-cursor.png'), auto;
+/* Visual Feedback */
+.button:active {
+  transform: scale(0.95);
 }
 
-/* Visual Feedback */
-.button:active, .slider:active, .toggle:active {
-  transform: scale(0.95);
+/*skill-bars-section*/
+.container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  margin: 0 15px;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.container .skill-box {
+  width: 100%;
+  margin: 25px 0;
+}
+
+.skill-bars-section {
+  width: 100%;
+}
+.skill-box .title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  width: 25%;
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar .skill-per {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 90%;
+  border-radius: 6px;
+  background: #4070f4;
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.skill-per.css {
+  width: 70%;
+  animation-delay: 0.1s;
+}
+
+.skill-per.javascript {
+  width: 50%;
+  animation-delay: 0.2s;
+}
+
+.skill-per.nodejs {
+  width: 30%;
+  animation-delay: 0.3s;
+}
+
+@keyframes progress {
+  0% {
+      width: 0;
+      opacity: 1;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.skill-per .tooltip {
+  position: absolute;
+  right: -14px;
+  top: -28px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #4070f4;
+  z-index: 1;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background-color: #4070f4;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .input-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .input-box i,
+  .input-box .button {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+
+  .input-box input {
+    padding: 10px;
+  }
+
+  .input-box .button {
+    width: 100%;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .wrapper .btn-1,
+  .wrapper .field .btn-2 {
+    width: 100%;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .skill-box {
+    margin: 15px 0;
+  }
+
+  .skill-per {
+    width: 100%;
+  }
 }
